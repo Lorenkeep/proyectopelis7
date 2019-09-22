@@ -3,14 +3,14 @@
 {% block body %} 
 <div class="container-fluid">
   <header class="row no-gutters" >
-      <div class="linkinicio col-1 d-none d-sm-none d-md-block align-self-center">
+      <div class="linkinicio col-1 d-md-block align-self-center">
           <a href="./" class="linkinicio btn btn-outline-light">Inicio </a> 
       </div>
       
     <div class="col-10">
           <h3 id="titulodetalle">{{peli["Title"]}}</h3>
       </div>
-      <div class="linkinicio col-1 d-none d-sm-none d-md-block align-self-right">
+      <div class="linkinicio col-1">
           <form action="/peliculas" method="POST">
             <button  type="submit"class="linkinicio btn btn-outline-light"id="todasbutton" name="buskeda" value="{{buskeda}}">Todas </button>
             </form>
