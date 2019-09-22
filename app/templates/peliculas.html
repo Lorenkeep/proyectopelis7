@@ -1,0 +1,63 @@
+{% extends 'base.html'%}
+{% block title %}Buscador Pelis{% endblock%}
+{% block body %}
+<div class="container-fluid">
+    <header class="row justify-content-start" id="pelisheader">
+      <div class="linkinicio col-1 d-none d-sm-none d-md-block align-self-start">
+        <a href="./" class="linkinicio btn btn-outline-light">Inicio </a> 
+    </div>
+    <div class="col-sm-4 offset-sm-4"><h3>Busca Pelis</h3></div>
+    </header>
+</div>
+
+<div class= "container">
+  <h5>Se  encontrado: <strong>{{totalpeliculas}}</strong> resultados</h5>
+     <br>
+     <h5>Estas en la pagina <strong>{{pageactual}} </strong>de <strong> {{numeropaginas}}</strong></h5>
+
+        
+  </div>
+  
+
+
+<form action="/detalle" method="POST">
+  <input type="hidden" name="buskeda" value="{{buskeda}}">
+
+  <table class="table table-bordered table-hover table-sm">
+  <thead class="thead-dark">
+  
+    <tr>
+        <th style="text-align: center"  scope="col">VER</th>
+        <th style="text-align: center" scope="col">TITULO</th>
+        <th style="text-align: center" scope="col">AÑO</th>
+        <th style="text-align: center" scope="col">CARTEL</th>
+    </tr>
+  </thead>
+  
+{% for item in buskedapelis %}
+<tbody>    
+  <input type="hidden" name="{{ item['imdbID']}}" value="{{ item['imdbID']}}">
+  <td  class="selection" id="selection" style="vertical-align: middle; text-align: center"> <button name="selection" value="{{ item['imdbID']}}" type="submit" class="btn btn-dark btn-sm">detalle</button></td>
+  <td style="vertical-align: middle; text-align: center">{{ item["Title"] }}</td>
+  <td style="vertical-align: middle; text-align: center">{{ item["Year"] }}</td>
+  <td style="vertical-align: middle; text-align: center">
+    <img class="img-fluid rounded" src="{{ item["Poster"]}}" alt="Not Found"style=" width:100px;height:150px; vertical-align: baseline; text-align: center">  
+  </td>
+  </tr>
+  {% endfor %} 
+</tbody>
+</table>
+</div>
+</form>
+
+<form action="/peliculas" method="POST">
+  <input type="hidden" name="buskeda" value="{{buskeda}}">
+  {%if pageactual >1%}
+  <button name="prev" class="btn btn-dark" value="{{pageactual}}" type="submit">Pagina anterior</button>
+  {%endif%}
+  {%if pageactual < numeropaginas %}
+  <button name="sig" class="btn btn-dark" value="{{pageactual}}" type="submit">Pagina Siguiente</button>
+  {%endif%}
+</form>
+
+{% endblock %}

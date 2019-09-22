@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% block title %} Detalle {% endblock %}
+{% block body %} 
+<div class="container-fluid">
+  <header class="row no-gutters" >
+      <div class="linkinicio col-1 d-none d-sm-none d-md-block align-self-center">
+          <a href="./" class="linkinicio btn btn-outline-light">Inicio </a> 
+      </div>
+      
+    <div class="col-10">
+          <h3 id="titulodetalle">{{peli["Title"]}}</h3>
+      </div>
+      <div class="linkinicio col-1 d-none d-sm-none d-md-block align-self-right">
+          <form action="/peliculas" method="POST">
+            <button  type="submit"class="linkinicio btn btn-outline-light"id="todasbutton" name="buskeda" value="{{buskeda}}">Todas </button>
+            </form>
+      </div>  
+  </header>
+</div>
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col-12 col-sm-12 col-md-6 justify-content-left ">
+      <hr>
+      <h6><strong>Año: </strong>{{peli["Year"]}}</h6><hr>
+      <h6><strong>Género: </strong>{{peli["Genre"]}}</h6><hr>
+      <h6><strong>Dirigida: </strong>{{peli["Director"]}}</h6><hr>
+      <h6><strong>Guionista: </strong>{{peli["Writer"]}}</h6><hr>
+      <h6><strong>Actores: </strong>{{peli["Actors"]}}</h6><hr>
+      <h6><strong>Sinopsis: </strong>{{peli["Plot"]}}</h6><hr>
+      <h6><strong>Premios: </strong>{{peli["Awards"]}}</h6><hr>
+    </div>
+    
+    <div id="poster" class="col-3 offset-1 align-self-center col-sm-4 col-md-4 offset-2">
+      <img class="img-fluid rounded" src="{{peli["Poster"]}}" alt=""></div>
+  </div>
+</div>
+
+       
+    </div>
+    
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12" id="barra">
+      <h4>Puntuaciones</h4>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <th style="text-align:center">Internet Movie Database</th>
+          <th style="text-align:center">Metacritic</th>
+          <th style="text-align:center">Metascore</th>
+          <th style="text-align:center">Rotten Tomatoes</th>
+          <th style="text-align:center">Votos en Imdb</th>
+        </thead>
+          <tr class="table-light">
+            <td style="text-align:center">{{internetmoviedb}}</td>
+            <td style="text-align:center">{{metacriticrating}}</td>
+            <td style="text-align:center">{{peli["Metascore"]}}</td>
+            <td style="text-align:center">{{ratings}}</td>
+            <td style="text-align:center">{{peli["imdbVotes"]}}</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>
+    
+<hr>
+<div class="container">
+  <div class="row text-align-center; ">
+    <div class="col-6 d-flex justify-content-center mb-5">
+      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+         Explicacion Rated
+      </button><h6 class="col-6 align-self-center float-left "><strong>Rated: </strong>{{peli["Rated"]}}</h6>   
+    </div>
+    
+  </div>
+
+</div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¿Qué es Rated?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+                <h6>Motion Picture Association of America film rating system
+                    se utiliza en los Estados Unidos y sus territorios para calificar
+                     una película de temática y de algún contenido de idoneidad para determinadas
+                      audiencias. Es uno de los diversos sistemas de clasificación de películas utilizadas
+                       para ayudar a los usuarios a decidir qué película es la más adecuada para ellos o sus hijos,
+                        según dicho contenido. </h6>
+            </div>
+          <hr>
+            <div class="row">
+              <div class="col">
+              <div class="media">
+                <img src="static/img/g.png"  id="modalimage" alt="" class="d-flex align-self-center">
+                <div class="media-body">
+                  <h4>Todas los publicos</h4>
+                  <p>
+                      Todas las edades admitidas. No hay desnudos ni referencias sexuales, no hay drogas, alcohol y/o tabaco
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+            <div class="row">
+            <div class="col">
+            <div class="media">
+              <img src="static/img/pg.png" id="modalimage" alt="" class="d-flex align-self-center">
+              <div class="media-body">
+                <h4>Guía paternal sugerida</h4>
+                <p>
+                    Algún material puede no ser adecuado para niños menores de 10.Puede haber violencia moderada
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+            <div class="col">
+            <div class="media">
+              <img src="static/img/pg13.png" id="modalimage" alt="" class="d-flex align-self-center">
+              <div class="media-body">
+                <h4>Guía paternal estricta.</h4>
+                <p>
+                    Algunos materiales pueden ser inapropiados para niños menores de 13.
+                     Puede contener lenguaje moderado, lenguaje muy soez o semifuerte, algunos 
+                     desnudos explícitos parciales, leve contenido de violencia, uso leve de armas,
+                      leve aparición de sangre, contenido leve de drogas e imágenes intensas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            <div class="media">
+              <img src="static/img/r.png" id="modalimage" alt="" class="d-flex align-self-center">
+              <div class="media-body">
+                <h4>Restringido.</h4>
+                <p>
+                    Menores de 17 años requieren de acompañamiento de padres o tutor adulto.
+                     Puede contener lenguaje fuerte, intensa énfasis sexual, desnudez explícita y
+                      fuerte, fuerte contenido de violencia, uso muy frecuente de armas y/o fuerte 
+                      cantidad de sangre.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>        
+
+        <div class="row">
+            <div class="col">
+            <div class="media">
+              <img src="static/img/nc17.png" id="modalimage" alt="" class="d-flex align-self-center">
+              <div class="media-body">
+                <h4>Mayores de 18 años.</h4>
+                <p>
+                    Esta película no es adecuada los menores de 18 años. Casi igual que la clasificación
+                    «R», pero lo único que cambia es que aquí hay violencia extrema, contenido sexuales
+                     fuerte, extremo uso de armas, desnudez en largos períodos de tiempo y/o mucha sangre. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="row">
+            <div class="col">
+            <div class="media">
+              <img src="static/img/notrated.png" id="modalimage" alt="" class="d-flex align-self-center">
+              <div class="media-body">
+                <h4>Sin clasificar.</h4>
+                <p>
+                    Para la película que no se haya presentado para la calificación, se utiliza la etiqueta
+                     NR —No Calificado— aunque, sin embargo, «NR» no sea una clasificación oficial de la MPAA.
+                      Las películas que no fueron clasificados por la MPAA, pero se someterán a la calificación,
+                       generalmente se anuncian con el aviso «Esta película aún no fue calificada» o, con menor
+                        frecuencia, «Calificación pendiente» [Not (yet) Rated]. Cuando la película no llega a
+                         su clasificación, se le pone el título de la película y a su lado el texto «UNRATED». 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
+          
+         
+        </div></div></div></div></div>
+
+    
+
+  
+</body>
+{%endblock%}
+</html>
+
+

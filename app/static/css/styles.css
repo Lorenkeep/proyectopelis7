@@ -1,0 +1,90 @@
+
+header.row {
+    background: #343a40;
+    padding: 20px;
+    margin: 0px;
+    color: #fff;
+    position: relative;       
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+    vertical-align: middle;
+    }
+
+#pelisheader {
+    margin-bottom: 10px;
+   
+}
+body {
+    margin-top: 0px;
+    background: #cad8de;
+    color: black;
+    font-family: "Roboto", sans-serif;
+}
+.titulo {
+    color: black
+}
+#selection {
+    color: #bcff00;
+    border-radius: 50px;
+}
+#titulodetalle {
+    margin-top: 8px;
+    text-align: center;
+    vertical-align:middle;
+}
+
+img{
+    width: 300px;
+    height: 444px;
+}
+
+.rating {
+    padding-top: 30px
+}
+.centrado {
+    text-align:center;
+} 
+#barra {
+    background: #343a40;
+    padding: 10px;
+    margin: 0px;
+    color: #fff;   
+    text-align:center; 
+}
+#todasbutton {
+    text-align: center;
+    vertical-align:middle;
+    margin-top: 8px;
+}
+#modalimage {
+    margin: auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+#circulo {
+    margin-left: 5px;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background: #5cb85c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+#circulo > h6 {
+	
+	color: #bcff00;
+	font-size: 1rem;
+	font-weight: bold;
+}
+footer.row {
+    background: #343a40;
+    padding: 20px;
+    margin: 0px;
+    color: #fff;
+    position: relative;       
+    text-align: left;
+    vertical-align: middle;
+    }    

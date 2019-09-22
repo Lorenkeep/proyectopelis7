@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Movie searcher {% endblock %}
+{% block body %} 
+
+<div class="container-fluid">
+<br><br><br><br>
+</div>
+
+
+<form action="/peliculas" method="POST">   
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="titulo col-auto">
+            <h1>Busca Pelis</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+       
+        <div class="col-auto">  
+            <input class="input rounded-lg"  type="text" name ="buskeda" placeholder="Titulo de pelicula" required>
+            <button type="submit" class="btn btn-dark btn-sm rounded-lg" value="Buscar">Buscar</button>
+            <div class="col-12"><p style="text-align: center">Loren &COPY; 2019</p></div>
+            {% block footer%} {%endblock%}
+        </div>   
+    </div>            
+</div>
+</form> 
+<div class="centrado"> <font color="red">{{nosepuedebuscar}}</font> </div>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>  
+    
+    {% endblock %}
